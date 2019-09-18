@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>나의 월급 알아보기~</title>
+
+	
+	<style type="text/css">
+	@font-face { font-family: 'GyeonggiBatang'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); font-weight: normal; font-style: normal; }
+		body{margin: auto; display: block; font-size: 17px; text-align: center; font-family: GyeonggiBatang;}
+		h1{margin-top: 20px; margin-bottom: 15px; font-size: 20px; font-weight: bold; }
+		p{margin-top: 0px; margin-bottom: 70px; font-size: 40px; font-weight: bold; padding-top: 60px;}
+		#monitor{font-weight: bold; font-size: 35px;}
+		#box{width: 700px; background-color: #F5F6CE; margin: auto; padding-bottom: 40px; margin-top: 40px;}
+		#wmonitor{font-weight: bold; font-size: 16px;}
+		#dmonitor{font-weight: bold; font-size: 16px;}
+		#ddog{opacity: 0;}
+
+
+	</style>
+</head>
+<body id="mybody">
+	<div id="box">
+	<p>설레는 월급날을 기다리며 알아봅시다</p>
+	<h1>하루에 일한 시간은?</h1>
+	0시간<input type="range" id="workh" min="0" max="24">24시간<br><br>
+
+	<div id="wmonitor">12시간</div><br>
+
+	<h1>몇일이나 하셨어요?</h1>
+	1일<input type="range" id="workd" min="1" max="31">31일<br><br>
+
+	<div id="dmonitor">15일</div><br>
+
+	<h1>시급은 얼마인가요?</h1>
+	<input type="text" placeholder="8350" id="hmey">원 <br><br>
+
+
+	<input type="button" value="계산해보기!" id="gogo"><br><br><br>
+	<h1>고생하셨습니다!</h1>
+
+	<div id="monitor">당신의 월급은 0원 입니다!</div>
+
+	</div>
+		<img src="giphy.gif" id="ddog">
+	<audio id="song">
+		<source src="22.mp3" type="audio/mp3">
+		
+	</audio>
+
+	<script type="text/javascript">
+		workh.oninput = function(){
+			wmonitor.innerHTML = workh.value + "시간"
+			var mwk = workh.value;
+			var mwd = workd.value;
+			var hmy = hmey.value;
+		}
+
+
+		workd.oninput = function(){
+			dmonitor.innerHTML = workd.value + "일"
+			var mwk = workh.value;
+			var mwd = workd.value;
+			var hmy = hmey.value;
+		}
+
+		gogo.onclick = function(){
+			var mym =  workh.value*workd.value*hmey.value;
+		
+			monitor.innerHTML = "당신의 " + "월급은 " + mym + "원 입니다!"
+			song.play();
+			mybody.style.background = "url('giphy.gif')"
+			mybody.style.backgroundsize = "200px 200px";
+
+		
+			
+		}
+	</script>
+
+
+
+</body>
+</html>
